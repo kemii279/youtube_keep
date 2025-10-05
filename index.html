@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人用YouTubeライブラリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>個人用YouTubeライブラリ</h1>
+        <div class="mode-switcher">
+            <button id="viewModeButton" class="active">📺 見るモード</button>
+            <button id="editModeButton">📝 編集モード</button>
+        </div>
+    </header>
+
+    <main id="viewMode" class="mode-container active">
+        <div id="videoGrid" class="video-grid">
+            </div>
+        <div id="viewPagination" class="pagination-controls">
+            <button id="viewPrevButton" disabled>前へ</button>
+            <span id="viewPageInfo"></span>
+            <button id="viewNextButton" disabled>次へ</button>
+        </div>
+    </main>
+
+    <main id="editMode" class="mode-container hidden">
+        <div class="add-form-container">
+            <h2>動画の追加</h2>
+            <input type="text" id="newVideoTitle" placeholder="タイトルを入力" required>
+            <input type="url" id="newVideoUrl" placeholder="YouTube URLを入力" required>
+            <button id="addVideoButton">追加（最新を最初に表示）</button>
+            <p id="addError" class="error-message"></p>
+        </div>
+
+        <h2>保存済み動画リスト</h2>
+        <ul id="videoList">
+            </ul>
+
+        <div id="editPagination" class="pagination-controls">
+            <button id="editPrevButton" disabled>前へ</button>
+            <span id="editPageInfo"></span>
+            <button id="editNextButton" disabled>次へ</button>
+        </div>
+    </main>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="video-player-container">
+                <iframe id="youtubePlayer" width="560" height="315" frameborder="0"  allowfullscreen></iframe>
+            </div>
+            <h3 id="modalVideoTitle"></h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
